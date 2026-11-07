@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { profile, marquee, tag } from "../data.js";
 
 const FRONT_URL =
-  "/images/front.png";
+  "/images/front.webp";
 const BACK_URL =
-  "/images/back.png";
+  "/images/back.webp";
 const LIFE = 1100;
 
 const GHOST = marquee.ghost;
@@ -62,6 +62,8 @@ export default function Hero() {
     const onFront = () => {
       frontReady = true;
       canvas.classList.add("ready");
+      // hand over from the plain <img> to the canvas once the canvas has painted
+      setTimeout(() => figure.classList.add("live"), 850);
     };
     if (front.complete && front.naturalWidth) onFront();
     else front.addEventListener("load", onFront);
