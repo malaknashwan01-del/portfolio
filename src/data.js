@@ -57,7 +57,7 @@ export const workIntro = {
 export const projects = [
   {
     title: "Playvo",
-    outcome: "Pitch booking app · Code Map 3, Taqat",
+    outcome: "Pitch booking app · CodeMap 2026, TAQAT",
     icon: "mobile",
     stats: [
       { value: "Flutter", label: "my role · mobile app" },
