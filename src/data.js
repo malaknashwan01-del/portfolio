@@ -56,6 +56,18 @@ export const workIntro = {
 //   stats: كلمتين قصار (٦ أحرف تقريباً) عشان يطلعوا حلوين بالخط الكبير
 export const projects = [
   {
+    title: "Pearl Dental",
+    type: "Full website · Booking system",
+    summary: "Bilingual Arabic/English clinic website with 4-step online booking, a 3D scroll-animated tooth and a staff dashboard.",
+    tags: ["Next.js 16", "TypeScript", "Tailwind", "three.js", "PostgreSQL"],
+    outcome: "Dental clinic website & booking system",
+    icon: "web",
+    stats: [],
+    image: "/work/pearl.jpg",
+    live: "https://pearl-dental-clinic-gray.vercel.app",
+    code: "",
+  },
+  {
     title: "Ridgeline",
     type: "Web app",
     summary: "8-page hiking dashboard with live weather APIs, interactive maps and full Arabic/English support.",
@@ -187,6 +199,7 @@ export const certifications = [
 ];
 
 export const projectDetails = {
+  "Pearl Dental": "Portfolio project for a fictional dental clinic. Arabic-first (RTL) with English. Editorial hero, 3D pearl tooth in three.js generated in code that flies between sections on scroll, live open/closed badge in the clinic time zone, treatments with prices, doctors carousel with next free slot, 4-step booking (treatment, dentist, time, details) with reference and .ics calendar file, manage/cancel booking up to 12h before, password-protected staff schedule. Double bookings prevented at the database level; all times in Asia/Gaza. Tech: Next.js 16, React 19, TypeScript, Tailwind v4, three.js, PostgreSQL (Neon), Drizzle, Zod, Vitest, Vercel.",
   Ridgeline: "8-page hiking dashboard (auth, analytics, interactive maps, trip planner, activity log) with protected, code-split routes; live APIs (Open-Meteo weather and geocoding, OpenStreetMap) with loading/error states and map-provider fallback; full Arabic/English with RTL, dark mode, metric/imperial units, accessible components; elevation chart synced with the route map. Tech: React, TypeScript, Vite, React Router, Recharts, Leaflet.",
   AngelStore: "Beauty e-commerce frontend: product catalog, wishlist with optimistic updates, shopping bag persisted in localStorage, admin view, skin-type quiz with product recommendations, virtual shade try-on, shop filters saved in the URL. Tech: React 19, TypeScript, Tailwind CSS v4, TanStack Query, Zustand, React Router.",
   Playvo: "Football-pitch booking app for players in Gaza plus a dashboard for pitch owners, built in an 8-person team during CodeMap 2026. Malak worked on the Flutter app: sign-up/login and the booking flow (search, map, booking, payment proof, confirmation). A survey of 14 players found 93% would use it.",
