@@ -92,13 +92,13 @@ export const projects = [
   },
   {
     title: "AI Intrusion Detection",
-    outcome: "Machine-learning project",
+    outcome: "CNN model for network attack detection",
     icon: "security",
     stats: [
-      { value: "ML", label: "detection model" },
-      { value: "Python", label: "data & training" },
+      { value: "83%", label: "test accuracy" },
+      { value: "89%", label: "attack precision" },
     ],
-    image: "",
+    image: "/work/ids.jpg",
     live: "",
     code: "https://github.com/malaknashwan01-del",
   },
