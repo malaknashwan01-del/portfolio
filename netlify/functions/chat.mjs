@@ -1,23 +1,23 @@
 // ============================================================
 //  /api/chat — the portfolio assistant (Netlify Function)
-//  The Anthropic API key lives ONLY here, as the environment
-//  variable ANTHROPIC_API_KEY set in the Netlify dashboard.
-//  It is never sent to the browser.
+//  Uses Groq's free API (no credit card). The key lives ONLY here,
+//  as the environment variable GROQ_API_KEY set in the Netlify
+//  dashboard. It is never sent to the browser.
 // ============================================================
 import {
   profile, about, projects, projectDetails, skills, services,
   experience, certifications, contact, socials,
 } from "../../src/data.js";
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
+const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const MAX_INPUT_CHARS = 500;     // longest message a visitor can send
 const MAX_TURNS = 10;            // how much of the conversation is sent back
-const MAX_TOKENS = 450;          // keeps answers short (and cheap)
+const MAX_TOKENS = 700;          // room for a short answer (and the model's thinking)
 const RATE_LIMIT = 20;           // messages per visitor…
 const RATE_WINDOW_MS = 60 * 60 * 1000; // …per hour
 
 // Best-effort limiter (resets when the function instance is recycled).
-// The real safety net is the spending limit in the Anthropic console.
+// Groq's free tier also caps usage per day, so nothing can be billed.
 const hits = new Map();
 function limited(ip) {
   const now = Date.now();
@@ -83,7 +83,7 @@ const json = (body, status = 200) =>
 export default async (req, context) => {
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) return json({ error: "not_configured" }, 503);
 
   const ip = context?.ip || req.headers.get("x-nf-client-connection-ip") || "unknown";
@@ -109,21 +109,27 @@ export default async (req, context) => {
   if (!messages.length || messages[messages.length - 1].role !== "user") return json({ error: "bad_request" }, 400);
 
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const body = {
+      model: MODEL,
+      max_completion_tokens: MAX_TOKENS,
+      temperature: 0.4,
+      messages: [{ role: "system", content: SYSTEM }, ...messages],
+    };
+    // gpt-oss models think before answering; keep that short
+    if (MODEL.startsWith("openai/gpt-oss")) body.reasoning_effort = "low";
+
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
-      headers: {
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ model: MODEL, max_tokens: MAX_TOKENS, system: SYSTEM, messages }),
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
     });
+    if (res.status === 429) return json({ error: "rate_limited" }, 429);
     if (!res.ok) {
-      console.error("Anthropic API error", res.status, await res.text());
+      console.error("Groq API error", res.status, await res.text());
       return json({ error: "upstream" }, 502);
     }
     const data = await res.json();
-    const reply = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
+    const reply = (data.choices?.[0]?.message?.content || "").trim();
     return json({ reply: reply || "Sorry, I couldn't answer that. You can email Malak at " + profile.email });
   } catch (err) {
     console.error("Chat function failed", err);

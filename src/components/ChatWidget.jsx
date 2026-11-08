@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { assistant, profile } from "../data.js";
+import { localAnswer } from "../localAnswers.js";
 
 const ENDPOINT = "/api/chat";
 const MAX_CHARS = 500;
@@ -29,11 +30,6 @@ function renderText(text) {
   return out;
 }
 
-const ERRORS = {
-  not_configured: `The assistant isn't switched on yet. You can email Malak at ${profile.email}.`,
-  rate_limited: `You've sent a lot of messages. Please try again later, or email Malak at ${profile.email}.`,
-  default: `Sorry, something went wrong. You can email Malak at ${profile.email}.`,
-};
 
 export default function ChatWidget() {
   const prefersArabic = typeof navigator !== "undefined" && /^ar/i.test(navigator.language || "");
@@ -78,14 +74,15 @@ export default function ChatWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           // the greeting is shown locally only; send the real conversation
-          messages: next.filter((m) => !m.local && !m.error).map(({ role, content }) => ({ role, content })),
+          messages: next.filter((m) => !m.local).map(({ role, content }) => ({ role, content })),
         }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.reply) throw new Error(data.error || "default");
       setMessages((m) => [...m, { role: "assistant", content: data.reply }]);
-    } catch (err) {
-      setMessages((m) => [...m, { role: "assistant", content: ERRORS[err.message] || ERRORS.default, error: true }]);
+    } catch {
+      // AI not available (no key yet, free limit reached, offline) → answer from the site's own data
+      setMessages((m) => [...m, { role: "assistant", content: localAnswer(content), local: true }]);
     } finally {
       setBusy(false);
     }

@@ -26,10 +26,11 @@ Project screenshots go in `public/work/`, the hero photos in `public/images/`.
 ## Deploy
 Connected to Netlify — every push to `main` redeploys (`netlify.toml` sets the build).
 
-## AI assistant
+## AI assistant (free)
 The chat button opens an assistant that answers questions about Malak.
 - Frontend: `src/components/ChatWidget.jsx`
-- Server: `netlify/functions/chat.mjs` (served at `/api/chat`), which calls the Claude API.
-- It needs the environment variable **`ANTHROPIC_API_KEY`** set in Netlify → Site configuration → Environment variables. The key never reaches the browser.
+- Server: `netlify/functions/chat.mjs` (served at `/api/chat`), using **Groq's free API** — no credit card.
+- Set **`GROQ_API_KEY`** in Netlify → Site configuration → Environment variables. The key never reaches the browser. Optional: `GROQ_MODEL` to change the model.
+- Without a key, or when the free daily limit is reached, the widget answers from `src/localAnswers.js` instead, so it always works.
 - Everything the assistant knows comes from `src/data.js`.
-- To try it locally run `npx netlify dev` (plain `npm run dev` serves the site without the function).
+- To try the AI locally run `npx netlify dev` (plain `npm run dev` uses the backup answers).
