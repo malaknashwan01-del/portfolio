@@ -81,11 +81,11 @@ export const projects = [
   },
   {
     title: "AngelStore",
-    outcome: "Full-stack beauty store · React + Express",
+    outcome: "Beauty e-commerce · React 19 + TypeScript",
     icon: "shop",
     stats: [
-      { value: "Full", label: "stack · React + Node" },
-      { value: "JWT", label: "secure auth" },
+      { value: "Quiz", label: "skin-type finder" },
+      { value: "Try-on", label: "virtual shades" },
     ],
     image: "/work/angelstore.jpg",
     live: "https://angelstore-malak.netlify.app",
@@ -111,11 +111,6 @@ export const skills = [
     title: "Frontend",
     text: "Responsive, accessible React apps with clean UI and smooth interactions.",
     tools: ["React 19", "TypeScript", "JavaScript ES6+", "Vite", "React Router", "Tailwind CSS", "TanStack Query", "Zustand", "HTML5", "CSS3", "Bootstrap", "REST APIs", "Recharts", "Leaflet", "i18n · RTL", "Git & GitHub"],
-  },
-  {
-    title: "Backend",
-    text: "Secure REST APIs with validation and authentication.",
-    tools: ["Node.js", "Express", "REST APIs", "Zod", "JWT auth", "bcrypt", "Helmet"],
   },
   {
     title: "Mobile & UI",
