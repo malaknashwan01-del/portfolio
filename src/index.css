@@ -268,7 +268,7 @@ main { background: var(--bg); }
 .r-btn:hover { border-color: #c2346e; color: #c2346e; }
 
 @media (hover: hover) {
-  .results.play .r-card.show.done:hover, .r-card:hover { transform: translateY(calc(-4 * var(--u))); box-shadow: 0 calc(18 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(168,56,106,.35); background: #fff; }
+  .r-card:hover { box-shadow: 0 calc(18 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(168,56,106,.35); background: #fff; }
   .r-card.linked:hover .r-img img { transform: scale(1.04); }
   .r-card.linked:hover .r-view { opacity: 1; transform: translate(-50%, -50%); }
 }
