@@ -92,54 +92,47 @@ export default function Work() {
         <span className="r-rule" aria-hidden="true" />
 
         <div className="r-cards">
-          {projects.map((p, i) => (
-            <article className={`r-card tone-${(i % 3) + 1}${p.live || p.code ? " linked" : ""}`} style={{ "--c": i }} key={p.title + i}
-              onAnimationEnd={(e) => { if (e.target === e.currentTarget) e.currentTarget.classList.add("done"); }}>
-              {(p.live || p.code) && (
-                <a className="r-cover" href={p.live || p.code} target="_blank" rel="noreferrer"
-                   aria-label={`Open ${p.title}${p.live ? " live demo" : " on GitHub"}`} />
-              )}
-              <header className="r-top">
-                <div>
-                  <h3>{p.title}</h3>
-                  <p>{p.outcome}</p>
-                </div>
-                <span className="r-mono" aria-hidden="true">{ICONS[p.icon] || ICONS.web}</span>
-              </header>
-
-              <div className="r-stats">
-                {p.stats.map((s) => (
-                  <div className="r-stat" key={s.label}>
-                    <strong>{s.value}</strong>
-                    <span>{s.label}</span>
+          {projects.map((p, i) => {
+            const url = p.live || p.code;
+            const host = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : p.title.toLowerCase().replace(/\s+/g, "-");
+            return (
+              <article className={`r-card${url ? " linked" : ""}`} style={{ "--c": i }} key={p.title + i}
+                onAnimationEnd={(e) => { if (e.target === e.currentTarget) e.currentTarget.classList.add("done"); }}>
+                {url && (
+                  <a className="r-cover" href={url} target="_blank" rel="noreferrer"
+                     aria-label={`Open ${p.title}${p.live ? " live demo" : " on GitHub"}`} />
+                )}
+                <div className="r-frame">
+                  <div className="r-bar" aria-hidden="true">
+                    <i /><i /><i />
+                    <span>{host}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className="r-photo">
-                <span className="paper p1" aria-hidden="true" />
-                <span className="paper p2" aria-hidden="true" />
-                <span className="paper p3" aria-hidden="true" />
-                <div className="r-img">
-                  {p.image ? (
-                    <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
-                  ) : (
-                    <span className="r-ph" aria-hidden="true">{ICONS[p.icon] || ICONS.web}</span>
-                  )}
+                  <div className="r-img">
+                    {p.image ? (
+                      <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+                    ) : (
+                      <span className="r-ph" aria-hidden="true">{ICONS[p.icon] || ICONS.web}</span>
+                    )}
+                    {url && <span className="r-view" aria-hidden="true">{p.live ? "View live" : "View code"} ↗</span>}
+                  </div>
+                </div>
+                <div className="r-body">
+                  <span className="r-type">{p.type}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.summary}</p>
+                  <ul className="r-tags">
+                    {(p.tags || []).map((t) => <li key={t}>{t}</li>)}
+                  </ul>
                   {(p.live || p.code) && (
-                    <span className="r-view" aria-hidden="true">{p.live ? "View live" : "View code"} ↗</span>
+                    <div className="r-links">
+                      {p.live && <a href={p.live} target="_blank" rel="noreferrer">Live demo ↗</a>}
+                      {p.code && <a href={p.code} target="_blank" rel="noreferrer">Code ↗</a>}
+                    </div>
                   )}
                 </div>
-              </div>
-
-              {(p.live || p.code) && (
-                <div className="r-links">
-                  {p.live && <a href={p.live} target="_blank" rel="noreferrer">Live ↗</a>}
-                  {p.code && <a href={p.code} target="_blank" rel="noreferrer">Code ↗</a>}
-                </div>
-              )}
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         <a className="r-btn" href={workIntro.moreUrl || "#contact"}>{workIntro.button}</a>

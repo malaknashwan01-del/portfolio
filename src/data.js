@@ -52,11 +52,14 @@ export const workIntro = {
 
 // ← مشاريعك (الأفضل ٣ أو ٦ عشان الشبكة تطلع مرتبة)
 //   icon: "web" | "mobile" | "ai" | "security" | "data"
-//   image: حطي سكرين شوت بـ public/work/ واكتبي "/work/name.png" (نسبة 3:2)
+//   image: سكرين شوت بـ public/work/ (نسبة 16:10، يعني مثلاً 1600×1000)
 //   stats: كلمتين قصار (٦ أحرف تقريباً) عشان يطلعوا حلوين بالخط الكبير
 export const projects = [
   {
     title: "Ridgeline",
+    type: "Web app",
+    summary: "8-page hiking dashboard with live weather APIs, interactive maps and full Arabic/English support.",
+    tags: ["React", "TypeScript", "Recharts", "Leaflet", "RTL"],
     outcome: "Hiking dashboard · React + TypeScript",
     icon: "map",
     stats: [
@@ -69,6 +72,9 @@ export const projects = [
   },
   {
     title: "AngelStore",
+    type: "E-commerce",
+    summary: "Beauty store frontend with a skin-type quiz, virtual shade try-on, wishlist and cart.",
+    tags: ["React 19", "TypeScript", "Tailwind", "TanStack Query", "Zustand"],
     outcome: "Beauty e-commerce · React 19 + TypeScript",
     icon: "shop",
     stats: [
@@ -81,6 +87,9 @@ export const projects = [
   },
   {
     title: "Playvo",
+    type: "Mobile app · Team",
+    summary: "Pitch-booking app for football players in Gaza, built in an 8-person team during CodeMap 2026.",
+    tags: ["Flutter", "Figma", "Team of 8"],
     outcome: "Pitch booking app · CodeMap 2026, TAQAT",
     icon: "mobile",
     stats: [
@@ -93,6 +102,9 @@ export const projects = [
   },
   {
     title: "AI Intrusion Detection",
+    type: "Machine learning",
+    summary: "CNN that detects network attacks: 83% accuracy and 89% precision on attacks.",
+    tags: ["Python", "TensorFlow", "CNN"],
     outcome: "CNN model for network attack detection",
     icon: "security",
     stats: [
