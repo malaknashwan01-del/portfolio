@@ -35,7 +35,7 @@ export const about = {
   ],
   facts: [
     { label: "Studying", value: "Computer & Intelligent Systems Eng." },
-    { label: "GPA", value: "91.03% · graduating 2027" },
+    { label: "GPA", value: "91.31% · graduating 2027" },
     { label: "University", value: "Al-Aqsa University" },
     { label: "Based in", value: "Gaza, Palestine" },
     { label: "Languages", value: "Arabic · English" },
@@ -57,7 +57,7 @@ export const workIntro = {
 export const projects = [
   {
     title: "Playvo",
-    outcome: "Football-pitch booking app for Gaza",
+    outcome: "Pitch booking app · Code Map 3, Taqat",
     icon: "mobile",
     stats: [
       { value: "Flutter", label: "my role · mobile app" },
