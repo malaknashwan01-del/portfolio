@@ -9,7 +9,7 @@ export const profile = {
   subtitle: "I build fast, responsive websites and web apps with React and TypeScript.",
   available: true, // false لإخفاء "Available for work"
   email: "malaknashwan01@gmail.com",
-  cvUrl: "", // ← لما يجهز الـ CV: حطيه بـ public/cv.pdf واكتبي هون "/cv.pdf"
+  cvUrl: "/cv.pdf", // ملف الـ CV موجود بـ public/cv.pdf — استبدليه بنفس الاسم لما تحدّثيه
   location: "Gaza, Palestine",
 };
 
