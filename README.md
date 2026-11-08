@@ -25,3 +25,11 @@ Project screenshots go in `public/work/`, the hero photos in `public/images/`.
 
 ## Deploy
 Connected to Netlify — every push to `main` redeploys (`netlify.toml` sets the build).
+
+## AI assistant
+The chat button opens an assistant that answers questions about Malak.
+- Frontend: `src/components/ChatWidget.jsx`
+- Server: `netlify/functions/chat.mjs` (served at `/api/chat`), which calls the Claude API.
+- It needs the environment variable **`ANTHROPIC_API_KEY`** set in Netlify → Site configuration → Environment variables. The key never reaches the browser.
+- Everything the assistant knows comes from `src/data.js`.
+- To try it locally run `npx netlify dev` (plain `npm run dev` serves the site without the function).

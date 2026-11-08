@@ -5,8 +5,8 @@
 export const profile = {
   name: "Malak Nashwan",
   initial: "M",
-  role: "Frontend & Mobile Developer",
-  subtitle: "I build fast, responsive React apps, Flutter mobile apps and AI-powered tools.",
+  role: "Frontend Web Developer",
+  subtitle: "I build fast, responsive websites and web apps with React and TypeScript.",
   available: true, // false لإخفاء "Available for work"
   email: "malaknashwan01@gmail.com",
   cvUrl: "", // ← لما يجهز الـ CV: حطيه بـ public/cv.pdf واكتبي هون "/cv.pdf"
@@ -15,11 +15,11 @@ export const profile = {
 
 // السطرين المتحركين
 export const marquee = {
-  ghost: "Code Create Launch",
-  solid: "Frontend Mobile AI",
+  ghost: "Design Code Launch",
+  solid: "React TypeScript Web",
 };
 
-export const tag = "Frontend Developer · 2026";
+export const tag = "Web Developer · 2026";
 
 export const nav = [
   { label: "Work", href: "#work" },
@@ -30,8 +30,8 @@ export const nav = [
 export const about = {
   title: "Hi, I'm Malak.",
   paragraphs: [
-    "I'm a Computer & Intelligent Systems Engineering student at Al-Aqsa University and a frontend developer. I build responsive, clean websites and enjoy getting the small details right — layout, spacing and how things feel on every screen.",
-    "Alongside the web, I work on mobile interfaces and AI: from data analysis and machine-learning projects in Python to chatbots that help users get answers faster.",
+    "I'm a frontend web developer and a Computer & Intelligent Systems Engineering student at Al-Aqsa University. I build responsive websites and web apps with React and TypeScript, and I care about the small details — layout, spacing, motion and how things feel on every screen.",
+    "I take on freelance and remote projects: landing pages, online stores, dashboards and full websites, from Figma design to a live link. I also work with AI, from machine-learning projects in Python to chatbots like the one on this site.",
   ],
   facts: [
     { label: "Studying", value: "Computer & Intelligent Systems Eng." },
@@ -45,7 +45,7 @@ export const about = {
 // عنوان قسم الأعمال
 export const workIntro = {
   title: ["Projects I've designed,", "built and shipped"],
-  lead: "From responsive websites to mobile apps and AI chatbots — here are a few things I've worked on recently.",
+  lead: "Websites and web apps I've designed, built and deployed — from dashboards to online stores.",
   button: "Let's work together",
   moreUrl: "", // مثلاً رابط GitHub تبعك، أو فاضي يوديهم على التواصل
 };
@@ -55,18 +55,6 @@ export const workIntro = {
 //   image: حطي سكرين شوت بـ public/work/ واكتبي "/work/name.png" (نسبة 3:2)
 //   stats: كلمتين قصار (٦ أحرف تقريباً) عشان يطلعوا حلوين بالخط الكبير
 export const projects = [
-  {
-    title: "Playvo",
-    outcome: "Pitch booking app · CodeMap 2026, TAQAT",
-    icon: "mobile",
-    stats: [
-      { value: "Flutter", label: "my role · mobile app" },
-      { value: "8", label: "person team" },
-    ],
-    image: "/work/playvo.jpg",
-    live: "",
-    code: "",
-  },
   {
     title: "Ridgeline",
     outcome: "Hiking dashboard · React + TypeScript",
@@ -92,6 +80,18 @@ export const projects = [
     code: "",
   },
   {
+    title: "Playvo",
+    outcome: "Pitch booking app · CodeMap 2026, TAQAT",
+    icon: "mobile",
+    stats: [
+      { value: "Flutter", label: "my role · mobile app" },
+      { value: "8", label: "person team" },
+    ],
+    image: "/work/playvo.jpg",
+    live: "",
+    code: "",
+  },
+  {
     title: "AI Intrusion Detection",
     outcome: "CNN model for network attack detection",
     icon: "security",
@@ -113,8 +113,8 @@ export const skills = [
     tools: ["React 19", "TypeScript", "JavaScript ES6+", "Vite", "React Router", "Tailwind CSS", "TanStack Query", "Zustand", "HTML5", "CSS3", "Bootstrap", "REST APIs", "Recharts", "Leaflet", "i18n · RTL", "Git & GitHub"],
   },
   {
-    title: "Mobile & UI",
-    text: "Cross-platform mobile apps in Flutter, built from Figma designs.",
+    title: "UI & Mobile",
+    text: "Pixel-accurate interfaces from Figma, plus Flutter mobile apps.",
     tools: ["Flutter", "Dart", "Mobile-first", "UI/UX principles", "Figma", "Canva"],
   },
   {
@@ -126,7 +126,7 @@ export const skills = [
 
 // قسم التواصل
 export const contact = {
-  availability: "Open to full-time & freelance",
+  availability: "Open to freelance & remote work",
   reply: "usually replies within 24h",
 };
 
@@ -137,3 +137,46 @@ export const socials = [
   { label: "Behance", url: "" },
   { label: "Instagram", url: "" },
 ];
+
+// ============================================================
+//  الشات بوت — معلومات إضافية بيستخدمها المساعد بس (ما بتطلع بالصفحة)
+// ============================================================
+export const assistant = {
+  name: "Malak's assistant",
+  greeting: "Hi! I'm Malak's AI assistant. Ask me about her projects, skills or how to hire her.",
+  greetingAr: "أهلاً! أنا مساعد ملك. اسألني عن مشاريعها أو مهاراتها أو كيف تتواصل معها.",
+  suggestions: [
+    "What's her strongest project?",
+    "Is she available for freelance?",
+    "What tech does she use?",
+    "شو بتقدر تعملي موقع؟",
+  ],
+};
+
+export const services = [
+  "Landing pages and business websites",
+  "Online stores (e-commerce frontends)",
+  "Dashboards and web apps in React + TypeScript",
+  "Turning Figma designs into responsive, accessible websites",
+  "Arabic/English (RTL) websites",
+  "Adding AI chatbots to websites",
+];
+
+export const experience = [
+  "Flutter Developer, CodeMap 2026 training program by TAQAT (144 hours, completed Nov 2026): built Playvo, a football-pitch booking app for Gaza, in an 8-person team; implemented sign-up/login and the booking flow from Figma designs; worked with backend, React and UX/UI teammates using Git and GitHub.",
+];
+
+export const certifications = [
+  "CodeMap 2026 — TAQAT (144 hours), Nov 2026",
+  "Claude with the Anthropic API — Anthropic, Aug 2026",
+  "AI Fluency: Framework & Foundations — TAQAT, Aug 2026",
+  "Claude Code 101 — TAQAT, Aug 2026",
+  "Front-End Development Course, 2025",
+];
+
+export const projectDetails = {
+  Ridgeline: "8-page hiking dashboard (auth, analytics, interactive maps, trip planner, activity log) with protected, code-split routes; live APIs (Open-Meteo weather and geocoding, OpenStreetMap) with loading/error states and map-provider fallback; full Arabic/English with RTL, dark mode, metric/imperial units, accessible components; elevation chart synced with the route map. Tech: React, TypeScript, Vite, React Router, Recharts, Leaflet.",
+  AngelStore: "Beauty e-commerce frontend: product catalog, wishlist with optimistic updates, shopping bag persisted in localStorage, admin view, skin-type quiz with product recommendations, virtual shade try-on, shop filters saved in the URL. Tech: React 19, TypeScript, Tailwind CSS v4, TanStack Query, Zustand, React Router.",
+  Playvo: "Football-pitch booking app for players in Gaza plus a dashboard for pitch owners, built in an 8-person team during CodeMap 2026. Malak worked on the Flutter app: sign-up/login and the booking flow (search, map, booking, payment proof, confirmation). A survey of 14 players found 93% would use it.",
+  "AI Intrusion Detection": "CNN that classifies network traffic as normal or malicious; 83% accuracy on a 1,908-sample test set and 89% precision on attack predictions; training/validation curves over 10 epochs showed no overfitting. Tech: Python, TensorFlow/Keras, scikit-learn.",
+};
