@@ -2,7 +2,7 @@
 
 Personal portfolio of **Malak Nashwan**, frontend & mobile developer.
 
-**Live:** _add your Netlify link here_
+**Live:** https://malak-nashwan-portfolio.netlify.app
 
 ## Features
 - Hero with a canvas brush-reveal effect (hover on desktop, auto-wander on touch)
