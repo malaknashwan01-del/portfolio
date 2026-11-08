@@ -96,7 +96,7 @@ export default function Work() {
             const url = p.live || p.code;
             const host = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : p.title.toLowerCase().replace(/\s+/g, "-");
             return (
-              <article className={`r-card${url ? " linked" : ""}`} style={{ "--c": i }} key={p.title + i}
+              <article className={`r-card${url ? " linked" : ""}`} style={{ "--c": Math.floor(i / 2) }} key={p.title + i}
                 onAnimationEnd={(e) => { if (e.target === e.currentTarget) e.currentTarget.classList.add("done"); }}>
                 {url && (
                   <a className="r-cover" href={url} target="_blank" rel="noreferrer"
