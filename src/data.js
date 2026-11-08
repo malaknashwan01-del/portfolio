@@ -35,6 +35,7 @@ export const about = {
   ],
   facts: [
     { label: "Studying", value: "Computer & Intelligent Systems Eng." },
+    { label: "GPA", value: "91.03% · graduating 2027" },
     { label: "University", value: "Al-Aqsa University" },
     { label: "Based in", value: "Gaza, Palestine" },
     { label: "Languages", value: "Arabic · English" },
@@ -80,11 +81,11 @@ export const projects = [
   },
   {
     title: "AngelStore",
-    outcome: "Beauty & skincare online store",
+    outcome: "Full-stack beauty store · React + Express",
     icon: "shop",
     stats: [
-      { value: "Quiz", label: "skin-type finder" },
-      { value: "Try-on", label: "virtual shades" },
+      { value: "Full", label: "stack · React + Node" },
+      { value: "JWT", label: "secure auth" },
     ],
     image: "/work/angelstore.jpg",
     live: "https://angelstore-malak.netlify.app",
@@ -108,8 +109,13 @@ export const projects = [
 export const skills = [
   {
     title: "Frontend",
-    text: "Responsive, accessible websites with clean UI and smooth interactions.",
-    tools: ["React", "TypeScript", "JavaScript ES6+", "Vite", "React Router", "HTML5", "CSS3", "Bootstrap", "REST APIs", "Recharts", "Leaflet", "i18n · RTL", "Git & GitHub"],
+    text: "Responsive, accessible React apps with clean UI and smooth interactions.",
+    tools: ["React 19", "TypeScript", "JavaScript ES6+", "Vite", "React Router", "Tailwind CSS", "TanStack Query", "Zustand", "HTML5", "CSS3", "Bootstrap", "REST APIs", "Recharts", "Leaflet", "i18n · RTL", "Git & GitHub"],
+  },
+  {
+    title: "Backend",
+    text: "Secure REST APIs with validation and authentication.",
+    tools: ["Node.js", "Express", "REST APIs", "Zod", "JWT auth", "bcrypt", "Helmet"],
   },
   {
     title: "Mobile & UI",
@@ -119,7 +125,7 @@ export const skills = [
   {
     title: "AI & Data",
     text: "Data analysis, machine learning and AI chatbots with Python.",
-    tools: ["Python", "Pandas", "NumPy", "Matplotlib", "Machine learning", "Chatbots", "Jupyter · Colab"],
+    tools: ["Python", "TensorFlow · Keras", "scikit-learn", "CNNs", "Pandas", "NumPy", "Matplotlib", "Chatbots", "Jupyter · Colab"],
   },
 ];
 

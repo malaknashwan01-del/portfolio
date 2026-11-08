@@ -64,7 +64,7 @@ export function About() {
 export function Skills() {
   return (
     <section className="section" id="skills">
-      <SectionHead index="03" label="What I do" title="Web, mobile & AI." />
+      <SectionHead index="03" label="What I do" title="Full-stack, mobile & AI." />
       <div className="skills-grid">
         {skills.map((s) => (
           <div className="skill reveal" key={s.title}>
