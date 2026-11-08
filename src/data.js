@@ -65,7 +65,7 @@ export const projects = [
     stats: [],
     image: "/work/pearl.jpg",
     live: "https://pearl-dental-clinic-gray.vercel.app",
-    code: "",
+    code: "https://github.com/malaknashwan01-del/pearl-dental",
   },
   {
     title: "Ridgeline",
