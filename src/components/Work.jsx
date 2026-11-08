@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { projects, workIntro } from "../data.js";
+import CurvedCarousel from "./CurvedCarousel.jsx";
 
 const ICONS = {
   web: (
@@ -91,49 +92,28 @@ export default function Work() {
         <p className="r-lead">{workIntro.lead}</p>
         <span className="r-rule" aria-hidden="true" />
 
-        <div className="r-cards">
-          {projects.map((p, i) => {
+      </div>
+
+      <div className="curve-wrap r-curve">
+        <span className="hand note-drag" aria-hidden="true">
+          drag me!
+          <svg viewBox="0 0 120 70" fill="none"><path pathLength="1" d="M8 10 C 40 6, 80 18, 96 52 M96 52 l-12 -4 M96 52 l3 -12" /></svg>
+        </span>
+        <CurvedCarousel items={projects} />
+      </div>
+
+      <div className="results-inner">
+        <ul className="proj-list r-fade2">
+          {projects.map((p) => {
             const url = p.live || p.code;
-            const host = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : p.title.toLowerCase().replace(/\s+/g, "-");
             return (
-              <article className={`r-card${url ? " linked" : ""}`} style={{ "--c": Math.floor(i / 2) }} key={p.title + i}
-                onAnimationEnd={(e) => { if (e.target === e.currentTarget) e.currentTarget.classList.add("done"); }}>
-                {url && (
-                  <a className="r-cover" href={url} target="_blank" rel="noreferrer"
-                     aria-label={`Open ${p.title}${p.live ? " live demo" : " on GitHub"}`} />
-                )}
-                <div className="r-frame">
-                  <div className="r-bar" aria-hidden="true">
-                    <i /><i /><i />
-                    <span>{host}</span>
-                  </div>
-                  <div className="r-img">
-                    {p.image ? (
-                      <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
-                    ) : (
-                      <span className="r-ph" aria-hidden="true">{ICONS[p.icon] || ICONS.web}</span>
-                    )}
-                    {url && <span className="r-view" aria-hidden="true">{p.live ? "View live" : "View code"} ↗</span>}
-                  </div>
-                </div>
-                <div className="r-body">
-                  <span className="r-type">{p.type}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.summary}</p>
-                  <ul className="r-tags">
-                    {(p.tags || []).map((t) => <li key={t}>{t}</li>)}
-                  </ul>
-                  {(p.live || p.code) && (
-                    <div className="r-links">
-                      {p.live && <a href={p.live} target="_blank" rel="noreferrer">Live demo ↗</a>}
-                      {p.code && <a href={p.code} target="_blank" rel="noreferrer">Code ↗</a>}
-                    </div>
-                  )}
-                </div>
-              </article>
+              <li key={p.title}>
+                {url ? <a href={url} target="_blank" rel="noreferrer">{p.title} <span aria-hidden="true">↗</span></a> : <span>{p.title}</span>}
+                <small>{p.tags?.slice(0, 2).join(" · ")}</small>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         <a className="r-btn" href={workIntro.moreUrl || "#contact"}>{workIntro.button}</a>
       </div>
